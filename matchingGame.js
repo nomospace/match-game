@@ -1,8 +1,13 @@
+/**
+ * 连连看实现文件
+ * @version 0.1
+ * @author	nomospace(jinlu_hz@163.com)
+ * @depends nts-js
+ */
 (function(){
-	// private
-    var p = P('nm.llk'),
-		__proModule,
-		__proPoint;
+    var p = P('nomospace.mg'),	//	module namespace
+		__proModule,			//	module class prototype
+		__proPoint;				//	module class prototype
     /**
      * 连连看主模块类
      * @constructor
@@ -10,6 +15,10 @@
      */
     p._$$MatchingGameModule = C();
     __proModule = p._$$MatchingGameModule.prototype;
+    /**
+     * 默认初始化函数
+     * @return {Void}
+     */
     __proModule._$initialize = function(){
         this.__intXnode();
         this.__intModule();
@@ -18,21 +27,20 @@
      * 初始化节点
      * @return {Void}
      */
-	__proModule.__intXnode = function(){
-	    this.__totalCount = E._$getElement('mg_total_count');
-	    this.__imageTypeCount = E._$getElement('mg_image_type_count');
-	    this.__totalTime = E._$getElement('mg_total_time');
-	    this.__container = E._$getElement('mg_container');
-	    V._$addEvent('mg_start_botton', 'click', this.__startGame._$bind(this));
-	};
-	/**
-	 * 初始化模块（算法只支持m*m的矩阵）
-	 * @return {Void}
-	 */
+    __proModule.__intXnode = function(){
+        this.__totalCount = E._$getElement('mg_total_count');
+        this.__imageTypeCount = E._$getElement('mg_image_type_count');
+        this.__container = E._$getElement('mg_container');
+        V._$addEvent('mg_start_botton', 'click', this.__startGame._$bind(this));
+    };
+    /**
+     * 初始化模块（目前算法只支持m*m的矩阵，默认为8行8列）
+     * @return {Void}
+     */
     __proModule.__intModule = function(){
         this.__defaultLineCount = 8;
         this.__defaultColumnCount = 8;
-        this.__defaultTotalCount = this.__defaultLineCount * this.__defaultColumnCount;//	默认格子数：8行8列
+        this.__defaultTotalCount = this.__defaultLineCount * this.__defaultColumnCount;
         this.__startGame();
     };
     /**
@@ -488,3 +496,11 @@
      */
     new p._$$MatchingGameModule();
 })();
+/**
+ * TODO:
+ * 		最短路径提示
+ * 		无解/死锁处理
+ * 		对n*m矩阵的支持
+ * 		计时/音效
+ */
+
