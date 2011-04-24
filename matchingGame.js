@@ -9,7 +9,7 @@
      * @class   连连看主模块类
      */
     p._$$MatchingGameModule = C();
-	__proModule = p._$$MatchingGameModule.prototype;
+    __proModule = p._$$MatchingGameModule.prototype;
     __proModule._$initialize = function(){
         this.__intXnode();
         this.__intModule();
@@ -18,13 +18,13 @@
      * 初始化节点
      * @return {Void}
      */
-    __proModule.__intXnode = function(){
-		this.__totalCount = E._$getElement('mg_total_count');
-		this.__imageTypeCount = E._$getElement('mg_image_type_count');
-		this.__totalTime = E._$getElement('mg_total_time');
-		this.__container = E._$getElement('mg_container');
-        V._$addEvent('mg_start_botton', 'click', this.__startGame._$bind(this));
-    };
+	__proModule.__intXnode = function(){
+	    this.__totalCount = E._$getElement('mg_total_count');
+	    this.__imageTypeCount = E._$getElement('mg_image_type_count');
+	    this.__totalTime = E._$getElement('mg_total_time');
+	    this.__container = E._$getElement('mg_container');
+	    V._$addEvent('mg_start_botton', 'click', this.__startGame._$bind(this));
+	};
 	/**
 	 * 初始化模块（算法只支持m*m的矩阵）
 	 * @return {Void}
@@ -391,18 +391,18 @@
 	 * @return {Boolean}
 	 */
     __proModule.__checkDeadlock = F;
-	/**
-	 * 短消息发件箱项对象
-	 * @constructor 短消息发件箱项对象
-	 * @base    p._$$CommonItem
-	 * @extends p._$$CommonItem
-	 */
-	p._$$MatchingGamePoint= C();
-	__proPoint = p._$$MatchingGamePoint._$extend(P(N.ut)._$$Item, true);
-	__proPoint._$initialize = function(){
-	    this._$super(E._$addNodeTemplate('<li><a></a></li>'));
-		this.__initXnode();
-	};
+    /**
+     * 连连看单个格子项对象
+     * @constructor 连连看单个格子项对象
+     * @base    P(N.ut)._$$Item
+     * @extends P(N.ut)._$$Item
+     */
+    p._$$MatchingGamePoint = C();
+    __proPoint = p._$$MatchingGamePoint._$extend(P(N.ut)._$$Item, true);
+    __proPoint._$initialize = function(){
+        this._$super(E._$addNodeTemplate('<li><a></a></li>'));
+        this.__initXnode();
+    };
     /**
      * 项重置
      * @param  {Object} _options 可选配置参数
@@ -445,14 +445,14 @@
             this.__point.style.fontFamily = 'webdings';
         }
     };
-	/**
-	 * 格子项点击的处理函数
-	 * @return {Void}
-	 */
+    /**
+     * 格子项点击的处理函数
+     * @return {Void}
+     */
     __proPoint.__onClickPoint = function(){
         if (!this.__data.value) {
-			return;
-		}
+            return;
+        }
         var _selected = this.__selected ? false : true;
         this._$toggle(this.__point, 'on');
         this._$dispatchEvent('onselect', this.__data, this.__selected = _selected);
@@ -466,10 +466,10 @@
     __proPoint._$toggle = function(_elm, _class){
         E._$hasClassName(_elm, _class) ? E._$delClassName(_elm, _class) : E._$addClassName(_elm, _class);
     };
-	/**
-	 * 返回格子项当前的选择状态
-	 * @return {Boolean}
-	 */
+    /**
+     * 返回格子项当前的选择状态
+     * @return {Boolean}
+     */
     __proPoint._$isSelected = function(){
         return this.__selected;
     };
@@ -483,8 +483,8 @@
         this.__point.removeAttribute('style');
         this.__selected = false;
     };
-	/**
-	 * 连连看主模块类入口
-	 */
-	new p._$$MatchingGameModule();
+    /**
+     * 连连看主模块类入口
+     */
+    new p._$$MatchingGameModule();
 })();
