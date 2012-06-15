@@ -1,1 +1,1 @@
-An easy matching game written in Javascript
+A stupid match game written in Javascript.
